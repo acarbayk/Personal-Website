@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interests - Kaya Acarbay</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .interests-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .interest-category {
+            margin-bottom: 4rem;
+        }
+
+        .interest-category h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .game-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .game-info {
+            padding: 1.5rem;
+        }
+
+        .game-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .game-info p {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .entertainment-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .entertainment-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .entertainment-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .entertainment-card ul {
+            list-style: none;
+        }
+
+        .entertainment-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .entertainment-card li:before {
+            content: "•";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .learning-preferences {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        .learning-preferences h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .preference-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .preference-item {
+            padding: 1rem;
+            background: var(--light-bg);
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .preference-item i {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--primary-color);
+        }
+
+        .stats-table th,
+        .stats-table td {
+            border: 2px solid var(--primary-color);
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .stats-table th {
+            background: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+            position: relative;
+        }
+
+        /* Add a white right border to all th except the last in the row */
+        .stats-table thead tr th:not(:last-child) {
+            border-right: 4px solid #fff;
+        }
+
+        .stats-table thead tr:first-child th {
+            border-bottom: 4px solid #fff;
+        }
+
+        .stats-table tbody tr:hover {
+            background: var(--light-bg);
+        }
+
+        .stats-table tfoot {
+            font-weight: bold;
+            background: var(--light-bg);
+        }
+
+        .stats-table tbody tr td[rowspan] {
+            border-right: 2px solid var(--primary-color);
+        }
+
+        .stats-table tbody tr td[colspan] {
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Kaya Acarbay</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="family.html">Family</a></li>
+            <li><a href="interests.html" class="active">Interests</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="interests-section">
+            <div class="interest-category">
+                <h2>Gaming Preferences</h2>
+                <div class="games-grid">
+                    <div class="game-card">
+                        <img src="Images/CIV6.jpg" alt="Civilization VI" ">
+                        <div class="game-info">
+                            <h3>Civilization VI</h3>
+                            <p>A turn-based strategy game where you build an empire to stand the test of time.</p>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <img src="Images/HO4.jpeg" alt="Hearts of Iron IV" ">
+                        <div class="game-info">
+                            <h3>Hearts of Iron IV</h3>
+                            <p>A grand strategy game set during World War II.</p>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <img src="Images/DarkSouls.jpg" alt="Dark Souls" ">
+                        <div class="game-info">
+                            <h3>Dark Souls Series</h3>
+                            <p>Challenging action RPGs known for their difficulty and rich lore.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="interest-category">
+                <h2>Favorite Shows & Actors</h2>
+                <div class="games-grid">
+                    <div class="game-card">
+                        <img src="Images/BigBangTheory.jpg" alt="Big Bang Theory" ">
+                        <div class="game-info">
+                            <h3>Big Bang Theory</h3>
+                            <p>A sitcom following the lives of four socially awkward scientists and their neighbor.</p>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <img src="Images/sherlock.jpg" alt="Sherlock" ">
+                        <div class="game-info">
+                            <h3>Sherlock</h3>
+                            <p>A modern adaptation of Sir Arthur Conan Doyle's classic detective stories.</p>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <img src="Images/TheOffice.jpg" alt="The Office">
+                        <div class="game-info">
+                            <h3>The Office</h3>
+                            <p>A mockumentary on a group of typical office workers in Scranton, Pennsylvania.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="games-grid" style="margin-top: 2rem;">
+                    <div class="game-card">
+                        <img src="Images/RobinWilliams.jpg" alt="Robin Williams">
+                        <div class="game-info">
+                            <h3>Robin Williams</h3>
+                            <p>Legendary comedian and actor known for his improvisational skills and emotional depth.</p>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <img src="Images/JimCarrye.jpg" alt="Jim Carrey">
+                        <div class="game-info">
+                            <h3>Jim Carrey</h3>
+                            <p>Versatile actor and comedian known for his expressive physical comedy and dramatic roles.</p>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <img src="Images/RobertDeNiro.jpg" alt="Robert De Niro">
+                        <div class="game-info">
+                            <h3>Robert De Niro</h3>
+                            <p>Academy Award-winning actor known for his intense method acting and iconic roles.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="interest-category">
+                <h2>Entertainment</h2>
+                <div class="entertainment-list">
+                    <div class="entertainment-card">
+                        <h3>TV Shows</h3>
+                        <ul>
+                            <li>
+                                Comedy Series
+                                <ul>
+                                    <li>The Office</li>
+                                    <li>Brooklyn Nine-Nine</li>
+                                    <li>Big Bang Theory</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Drama Series
+                                <ul>
+                                    <li>Breaking Bad</li>
+                                    <li>Sherlock</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Documentaries
+                                <ul>
+                                    <li>Planet Earth</li>
+                                    <li>How Do They Do It?</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="entertainment-card">
+                        <h3>Anime</h3>
+                        <ul>
+                            <li>
+                                Action/Adventure
+                                <ul>
+                                    <li>Bleach</li>
+                                    <li>JoJo's Bizarre Adventure</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Psychological Thrillers
+                                <ul>
+                                    <li>Death Note</li>
+                                    <li>Steins Gate</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Slice of Life
+                                <ul>
+                                    <li>Horimiya</li>
+                                    <li>Tomo-chan wa Onnanoko!</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="entertainment-card">
+                        <h3>Movies</h3>
+                        <ul>
+                            <li>
+                                Science Fiction
+                                <ul>
+                                    <li>Inception</li>
+                                    <li>Star Wars</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Action/Adventure
+                                <ul>
+                                    <li>John Wick</li>
+                                    <li>Indiana Jones</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Comedy
+                                <ul>
+                                    <li>Grown Ups</li>
+                                    <li>The Mask</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="entertainment-card">
+                        <h3>Tabletop Games</h3>
+                        <ul>
+                            <li>
+                                Dungeons & Dragons
+                                <ul>
+                                    <li>Curse of Strahd</li>
+                                    <li>Lost Mine of Phandelver</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Strategy Board Games
+                                <ul>
+                                    <li>Catan</li>
+                                    <li>Risk</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Card Games
+                                <ul>
+                                    <li>Hearthstone</li>
+                                    <li>Gwent</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="learning-preferences">
+                <h3>Learning Style</h3>
+                <div class="preference-list">
+                    <div class="preference-item">
+                        <i class="fas fa-book"></i>
+                        <p>Real-world Systems</p>
+                    </div>
+                    <div class="preference-item">
+                        <i class="fas fa-sticky-note"></i>
+                        <p>Story-Driven Scenarios</p>
+                    </div>
+                    <div class="preference-item">
+                        <i class="fas fa-code"></i>
+                        <p>Tiered Practice Easy to Hard</p>
+                    </div>
+                    <div class="preference-item">
+                        <i class="fas fa-layer-group"></i>
+                        <p>Code + Context Hybrid</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+            <div class="interest-category">
+                <h2>Gaming Statistics</h2>
+                <div class="table-container">
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th rowspan="2">Game Title</th>
+                                <th rowspan="2">Genre</th>
+                                <th colspan="2">Play Time</th>
+                                <th rowspan="2">Difficulty Level</th>
+                                <th colspan="2">Game Status</th>
+                                <th rowspan="2">Multiplayer</th>
+                            </tr>
+                            <tr>
+                                <th>Hours</th>
+                                <th>Last Played</th>
+                                <th>Completion</th>
+                                <th>Current Goal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="2">Civilization VI</td>
+                                <td rowspan="2">Strategy</td>
+                                <td>500+</td>
+                                <td>Today</td>
+                                <td rowspan="2">Medium</td>
+                                <td>Multiple Victories</td>
+                                <td>Diplomatic</td>
+                                <td rowspan="2">Yes</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Most Played Game</td>
+                                <td>Cultural</td>
+                                <td>Tourism</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">Hearts of Iron IV</td>
+                                <td rowspan="2">Grand Strategy</td>
+                                <td>300+</td>
+                                <td>Yesterday</td>
+                                <td rowspan="2">Hard</td>
+                                <td>In Progress</td>
+                                <td>World Conquest</td>
+                                <td rowspan="2">Yes</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Favorite Nation: Germany</td>
+                                <td>Historical</td>
+                                <td>Axis Victory</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">Dark Souls III</td>
+                                <td rowspan="2">Action RPG</td>
+                                <td>200+</td>
+                                <td>Last Week</td>
+                                <td rowspan="2">Very Hard</td>
+                                <td>Completed</td>
+                                <td>NG+</td>
+                                <td rowspan="2">Yes</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Favorite Boss: Slave Knight Gael</td>
+                                <td>All Bosses</td>
+                                <td>No-Hit Run</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">Elden Ring</td>
+                                <td rowspan="2">Action RPG</td>
+                                <td>150+</td>
+                                <td>Last Month</td>
+                                <td rowspan="2">Hard</td>
+                                <td>In Progress</td>
+                                <td>Main Story</td>
+                                <td rowspan="2">Yes</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Favorite Area: Caelid</td>
+                                <td>Exploration</td>
+                                <td>All Bosses</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2">Total Hours</td>
+                                <td colspan="2">1150+</td>
+                                <td colspan="2">Average Difficulty</td>
+                                <td colspan="2">Hard</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Kaya Acarbay. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

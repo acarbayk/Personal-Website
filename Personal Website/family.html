@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family - Kaya Acarbay</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .family-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .family-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .family-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .family-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .family-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .family-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .family-card p {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .family-card .role {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .family-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .family-intro p {
+            max-width: 600px;
+            margin: 1rem auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Kaya Acarbay</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="family.html" class="active">Family</a></li>
+            <li><a href="interests.html">Interests</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="family-section">
+            <div class="family-intro">
+                <h1>My Family</h1>
+                <p>I come from a creative and talented family, each member contributing their unique skills to the arts and media industry in Türkiye.</p>
+            </div>
+
+            <div class="family-grid">
+                <div class="family-card">
+                    <img src="Images/Babam.png" alt="Hakan Acarbay" onerror="this.src='https://via.placeholder.com/150'">
+                    <h3>Hakan Acarbay</h3>
+                    <p class="role">Father</p>
+                    <p>Producer at TRT</p>
+                    <p>With years of experience in television production, my father brings stories to life through his work at TRT.</p>
+                </div>
+
+                <div class="family-card">
+                    <img src="Images/Annem.jpg" alt="Arzu Acarbay" onerror="this.src='https://via.placeholder.com/150'">
+                    <h3>Arzu Acarbay</h3>
+                    <p class="role">Mother</p>
+                    <p>Makeup Artist at TRT</p>
+                    <p>My mother's artistic talent shines through her work as a makeup artist, enhancing the visual appeal of TRT productions.</p>
+                </div>
+
+                <div class="family-card">
+                    <img src="Images/Sister.jpg" alt="Yasemin Acarbay" onerror="this.src='https://via.placeholder.com/150'">
+                    <h3>Yasemin Acarbay</h3>
+                    <p class="role">Sister</p>
+                    <p>Musician at Anadolu University State Conservatory.</p>
+                    <p>My sister pursues her passion for music at the prestigious Anadolu University State Conservatory.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Kaya Acarbay. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

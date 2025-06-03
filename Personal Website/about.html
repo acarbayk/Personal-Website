@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Kaya Acarbay</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .about-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .about-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .about-card ul {
+            list-style: none;
+        }
+
+        .about-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .about-card i {
+            color: var(--secondary-color);
+            margin-right: 0.5rem;
+        }
+
+        .rating-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .rating-group output {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .btn.secondary {
+            background: var(--light-bg);
+            color: var(--primary-color);
+            margin-left: 1rem;
+        }
+
+        .btn.secondary:hover {
+            background: #ddd;
+        }
+
+        small {
+            display: block;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+
+        select[multiple] {
+            width: 100%;
+            padding: 0.5rem;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            margin: 0.5rem 0;
+        }
+
+        input[type="color"] {
+            width: 100px;
+            height: 40px;
+            padding: 0;
+            border: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Kaya Acarbay</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="family.html">Family</a></li>
+            <li><a href="interests.html">Interests</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="about-section">
+            <h1>About Me</h1>
+            <p>Hello! I'm Kaya Acarbay, a 21-year-old software developer from İzmir, Türkiye. I'm currently living with my family in Menemen while pursuing my passion for technology and programming.</p>
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Personal Background</h3>
+                    <ul>
+                        <li><i class="fas fa-user"></i> Age: 21 years old</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Location: Menemen, İzmir</li>
+                        <li><i class="fas fa-flag"></i> Nationality: Turkish</li>
+                    </ul>
+                </div>
+
+                <div class="about-card">
+                    <h3>Technical Skills</h3>
+                    <ul>
+                        <li><i class="fab fa-python"></i> Python Development</li>
+                        <li><i class="fas fa-code"></i> FastAPI</li>
+                        <li><i class="fas fa-gamepad"></i> Unreal Engine 5</li>
+                    </ul>
+                </div>
+
+                <div class="about-card">
+                    <h3>Learning Journey</h3>
+                    <ul>
+                        <li><i class="fas fa-clock"></i> Started programming at age 14</li>
+                        <li><i class="fas fa-graduation-cap"></i> Self-taught developer</li>
+                        <li><i class="fas fa-brain"></i> Focus on AI and game development</li>
+                    </ul>
+                </div>
+
+                <div class="about-card">
+                    <h3>Current Focus</h3>
+                    <ul>
+                        <li><i class="fas fa-dumbbell"></i> Developing FitBuddies app</li>
+                        <li><i class="fas fa-robot"></i> Building AI assistant</li>
+                        <li><i class="fas fa-laptop-code"></i> Learning new technologies</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <h2>Fun Questionnaire</h2>
+            <form class="contact-form" action="#" method="POST" enctype="multipart/form-data" novalidate>
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required 
+                           pattern="[A-Za-z\s]{2,50}" 
+                           title="Please enter a valid name (2-50 characters, letters only)"
+                           placeholder="Enter your name (or a cool nickname)"
+                           minlength="2" maxlength="50">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" required
+                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                           title="Please enter a valid email address"
+                           placeholder="your.email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="birthdate">Your Birth Date:</label>
+                    <input type="date" id="birthdate" name="birthdate" required
+                           min="1900-01-01" max="2024-12-31">
+                </div>
+
+                <div class="form-group">
+                    <label>Did I deserve a full mark?</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="grade" value="yes" required>
+                            <span>Yes</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="grade" value="definitely">
+                            <span>Definitely</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="grade" value="sure">
+                            <span>Sure</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>How awesome is this website?</label>
+                    <div class="rating-group">
+                        <input type="range" id="awesome-rating" name="awesome-rating" 
+                               min="1" max="10" value="10" 
+                               oninput="this.nextElementSibling.value = this.value">
+                        <output>10</output>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Would you hire me?</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="hire" value="yes" required>
+                            <span>Yes, immediately!</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="hire" value="definitely">
+                            <span>Definitely, no questions asked!</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="hire" value="sure">
+                            <span>Sure, why not?</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="skills">My Best Skills (Select multiple):</label>
+                    <select id="skills" name="skills" multiple size="4" required>
+                        <option value="coding">Coding</option>
+                        <option value="design">Design</option>
+                        <option value="problem-solving">Problem Solving</option>
+                        <option value="communication">Communication</option>
+                        <option value="teamwork">Teamwork</option>
+                        <option value="creativity">Creativity</option>
+                    </select>
+                    <small>Hold Ctrl (Windows) or Command (Mac) to select multiple options</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="feedback">Any additional feedback? (Optional)</label>
+                    <textarea id="feedback" name="feedback" rows="3" 
+                              placeholder="Feel free to shower me with compliments..."
+                              maxlength="500"></textarea>
+                    <small>Maximum 500 characters</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="resume">Upload Your Resume (Optional):</label>
+                    <input type="file" id="resume" name="resume" 
+                           accept=".pdf,.doc,.docx,.txt"
+                           title="Upload your resume (PDF, DOC, DOCX, or TXT)">
+                </div>
+
+                <button type="submit" class="btn primary">Submit My Awesome Feedback</button>
+                <button type="reset" class="btn secondary">Reset Form</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Kaya Acarbay. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
